@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>Analysis of share market for mutual fund allocation & deriving relationship among different sector</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -41,20 +41,127 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+					<h3>Analysis of share market for mutual fund allocation & deriving relationship among different sector</h3>
+					<!-- <h3>The HTML Presentation Framework</h3> -->
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
+						<small>Created by <a href="http://hakim.se">Achyut Ghsoh</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">Soumik Bose</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
+					<h2>Abstract</h2>
 					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+						<ul>
+							<li>Share market prediction is always an interesting research topic as it deals with a lot of uncertainties and
+							unpredictability</li>
+							<li>This paper analyses the correlation between two different sectoral indices (e.g. between Automobile sector index and
+							between Metal sector index, between Bank sector index and IT sectoral index etc.) in a time lagged manner.</li>
+						</ul>
 					</p>
 				</section>
 
+				<section>
+					<!-- <h2>Dimension of Analysis</h2> -->
+					<section>
+						<h2>Dimension of Analysis</h2>
+						<p>
+							<b>Time:</b> Time is almost an inevitable dimension in data warehouse formation. For the share market Time could be
+							represented
+							in many formats: Hour, Day, Week, Month, Quarter, Year etc. as required for the analysis.
+						</p>
+					</section>
+
+					<section>
+						<h2>Dimension of Analysis</h2>
+						<p>
+							<b>Closing Price:</b> “Closing price” generally refers to the last price at which a stock trades during a regular trading
+							session. For Indian share market regular trading sessions run from 9:00 a.m. to 3:00 p.m.(GMT).
+						</p>
+					</section>
+
+					<section>
+						<h2>Dimension of Analysis</h2>
+						<p>
+							<b>Company Group:</b> This could be represented in different ways, however, they are generally grouped to represent a specific
+							industry (such as Banking, IT, Auto etc.) or based on market capitalization (such as Large Cap, Mid Cap, mall Cap).
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Sample Dataset</h2>
+				
+					<a href="#" class="navigate-down">
+						<img width="500" height="300" src="images/scatter plot.png"
+							alt="Down arrow">
+					</a>
+					<p>This is the scatter plot of sample dataset of TCS.</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Different Regression Model</h2>
+					
+						<a href="#" class="navigate-down">
+							<img width="500" height="300" src="images/deg1.png" alt="Down arrow">
+						</a>
+						<p>This is Linear Regression (TCS Month based)</p>
+					</section>
+					
+					<section>
+						<h2>Different Regression Model</h2>
+
+						<a href="#" class="navigate-down">
+							<img width="500" height="300" src="images/deg2.png" alt="Down arrow">
+						</a>
+						<p>This is Polynomial Regression of degree 2 (TCS Month based)</p>
+					</section>
+
+					<section>
+						<h2>Different Regression Model</h2>
+					
+						<a href="#" class="navigate-down">
+							<img width="500" height="300" src="images/deg4.png" alt="Down arrow">
+						</a>
+						<p>This is Polynomial Regression of degree 4 (TCS Month based)</p>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Random Forest Regression Model</h2>
+						
+						<a href="#" class="navigate-down">
+							<img width="500" height="300" src="images/randomforest.png" alt="Down arrow">
+						</a>
+						<p>This is Randomforest Regression (TCS Month based)</p>
+					</section>
+
+					<section>
+						<h2>Random Forest Regression Psudo Code</h2>
+
+						<pre><code class="hljs" data-trim contenteditable>
+						#Converting date into equivalent timeframe
+						timestamp=[]
+						import datetime
+						import time
+						for d in x:
+						t=datetime.datetime.strptime(d[0],'%Y/%m/%d').date()
+						ti=time.mktime(datetime.datetime
+						.strptime(d[0], '%Y/%m/%d')
+						.timetuple())
+						timestamp.append([ti])
+						
+						#Fitting random forest regression for training set
+						from sklearn.ensemble import RandomForestRegressor
+						regressor = 
+						RandomForestRegressor(n_estimators = 80, random_state=0)
+						regressor.fit(x_train,y_train)
+						
+						#Predicting the test set result
+						y_pred=regressor.predict(x_test)</code></pre>
+					</section>
+				</section>
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
@@ -88,10 +195,12 @@
 				</section>
 
 				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="https://slides.com" target="_blank">https://slides.com</a>.
-					</p>
+					<h2>Vertical Slides</h2>
+					
+					<a href="#" class="navigate-down">
+						<img width="400" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+					</a>
+					<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
 				</section>
 
 				<section>
