@@ -170,6 +170,98 @@
 						y_pred=regressor.predict(x_test)</code></pre>
 				</section>
 			</section>
+
+			<section>
+				<section>
+					<h2>Growth Rate Calculation</h2>
+					
+					<p><ul>
+						<li>Pick up a company from a particular sector.</li>
+						<li>Find the percentages of the growth rate of the company for a different time period with respect to the month immediate
+						earlier.</li>
+					</ul>
+				</p>
+				</section>
+				
+				<section>
+					<h2>Steps for calculation</h2>
+
+					<ol>
+						<li>Derivation=Actual price-predicted best fit price</li>
+						<li>Weight=1/(P *(p+1)/2), where P=Total Observation</li>
+						<li>Growth=(Actual price of 2nd observation- Actual price of 1st observation)/ Actual price of 1st observation</li>
+						<li>CNGR(Company net growth rate)= Growth * Weight</li>
+						<li>CNGRj = Y1 ∗ Gr1 + Y2 ∗ Gr2 + · · · + Yi ∗ Gri + · · · + Yp ∗ Grp,<br> where CNGRj is the Company Net Growth Rate of jth company (where j=1 to m)</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Growth Calculation Psudo Code</h2>
+				
+					<pre><code class="hljs" data-trim contenteditable>
+							#Deviation
+							DeviationT=[]
+							
+							for i in range(0,174):
+							Dev= Yt[i]-Y_pred_TCS[i]
+							DeviationT.append(Dev)
+							
+							P_T=len(Yt)
+
+							#compute Yi
+							#formula 1
+							m_Yi_T=[]
+							Q=P_T
+							#Weight Calculation
+							Wt_T=1/(P_T * (P_T+1)/2)
+							i=0
+							while (i<244): 
+								Yi=Wt_T*Q
+								m_Yi_T.append(Yi) 
+								i=i+1
+							#compute Yi
+							#formula 2   
+							for i in range(0,174): 
+							    Yi= Wt_T*Q
+							    m_Yi_T.append(Yi)
+								Q=Q-1
+								
+							######Step 3########
+							Gr_T=[]
+							G=0.0
+							#for first growth is 0
+							Gr_T.append(G)
+							#Compute Growth(Gr)
+							for i in range(1,174):
+								 G=(Yt[i]-Yt[i-1])/Yt[i-1] * 100
+								 Gr_T.append(G)
+							#Company net growth Rate
+							#CNGR
+							CNGR_T=[]
+
+							for i in range(0,174):
+    						 	CN=Gr_T[i]*m_Yi_T[i]
+    							CNGR_T.append(CN)
+					
+							</code></pre>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Project Analysis</h2>
+					
+					<a href="#" class="navigate-down">
+						<img width="400" height="300" src="images/growth.png" alt="Down arrow">
+					</a>
+
+					<a href="#" class="navigate-down">
+						<img width="400" height="300" src="images/growth1.png" alt="Down arrow">
+					</a>
+					<p><small>We have considered 3 IT Companies and Stock price started from January 2000 to Jan 2019</small></p>
+				</section>
+				
+			</section>
 			<!-- Example of nested vertical slides -->
 			<section>
 				<section>
